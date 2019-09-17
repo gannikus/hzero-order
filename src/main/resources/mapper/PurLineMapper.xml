@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hzero.hand.hzeroorder.infra.mapper.PurLineMapper">
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="BaseResultMap" type="org.hzero.hand.hzeroorder.domain.entity.PurLine">
+        <result column="pur_line_id" property="purLineId" jdbcType="DECIMAL"/>
+        <result column="pur_header_id" property="purHeaderId" jdbcType="DECIMAL"/>
+        <result column="line_num" property="lineNum" jdbcType="DECIMAL"/>
+        <result column="shipment_num" property="shipmentNum" jdbcType="DECIMAL"/>
+        <result column="item_code" property="itemCode" jdbcType="VARCHAR"/>
+        <result column="item_name" property="itemName" jdbcType="VARCHAR"/>
+        <result column="quantity" property="quantity" jdbcType="DECIMAL"/>
+        <result column="quantity_uom" property="quantityUom" jdbcType="VARCHAR"/>
+        <result column="tax_excluded_price" property="taxExcludedPrice" jdbcType="DECIMAL"/>
+        <result column="tax_excluded_line_amount" property="taxExcludedLineAmount" jdbcType="DECIMAL"/>
+        <result column="tax" property="tax" jdbcType="DECIMAL"/>
+        <result column="currency_code" property="currencyCode" jdbcType="VARCHAR"/>
+        <result column="demand_date" property="demandDate" jdbcType="DATE"/>
+        <result column="promise_date" property="promiseDate" jdbcType="DATE"/>
+        <result column="received_org" property="receivedOrg" jdbcType="VARCHAR"/>
+        <result column="received_warehouse" property="receivedWarehouse" jdbcType="VARCHAR"/>
+        <result column="received_location" property="receivedLocation" jdbcType="VARCHAR"/>
+        <result column="buyer_line_remark" property="buyerLineRemark" jdbcType="VARCHAR"/>
+        <result column="feedback_info" property="feedbackInfo" jdbcType="VARCHAR"/>
+        <result column="creation_date" property="creationDate" jdbcType="DATE"/>
+        <result column="created_by" property="createdBy" jdbcType="DECIMAL"/>
+        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL"/>
+        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE"/>
+    </resultMap>
+</mapper>

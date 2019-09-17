@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hzero.hand.hzeroorder.infra.mapper.DeliveryNoteLineMapper">
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="BaseResultMap" type="org.hzero.hand.hzeroorder.domain.entity.DeliveryNoteLine">
+        <result column="line_id" property="lineId" jdbcType="DECIMAL"/>
+        <result column="head_id" property="headId" jdbcType="DECIMAL"/>
+        <result column="line_number" property="lineNumber" jdbcType="DECIMAL"/>
+        <result column="customer_item_code" property="customerItemCode" jdbcType="BIGINT"/>
+        <result column="customer_item_name" property="customerItemName" jdbcType="VARCHAR"/>
+        <result column="order_quantity" property="orderQuantity" jdbcType="DECIMAL"/>
+        <result column="may_deliver_goods" property="mayDeliverGoods" jdbcType="DECIMAL"/>
+        <result column="unit" property="unit" jdbcType="VARCHAR"/>
+        <result column="this_deliver_goods" property="thisDeliverGoods" jdbcType="VARCHAR"/>
+        <result column="supplier_remarks" property="supplierRemarks" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="DECIMAL"/>
+        <result column="order_line_number" property="orderLineNumber" jdbcType="DECIMAL"/>
+        <result column="shipping_number" property="shippingNumber" jdbcType="VARCHAR"/>
+        <result column="version" property="version" jdbcType="VARCHAR"/>
+        <result column="need_date" property="needDate" jdbcType="DATE"/>
+        <result column="promise_date" property="promiseDate" jdbcType="DATE"/>
+        <result column="contacts_information" property="contactsInformation" jdbcType="VARCHAR"/>
+        <result column="purchaser_remarks" property="purchaserRemarks" jdbcType="VARCHAR"/>
+        <result column="order_seq" property="orderSeq" jdbcType="DECIMAL"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="line_status" property="lineStatus" jdbcType="VARCHAR"/>
+        <result column="object_version_number" property="objectVersionNumber" jdbcType="DECIMAL"/>
+        <result column="creation_date" property="creationDate" jdbcType="DATE"/>
+        <result column="created_by" property="createdBy" jdbcType="DECIMAL"/>
+        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL"/>
+        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE"/>
+    </resultMap>
+</mapper>

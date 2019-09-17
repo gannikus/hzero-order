@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hzero.hand.hzeroorder.infra.mapper.DlyNoteDisplayDTOMapper">
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="DlyNoteDisplayResultMap" type="org.hzero.hand.hzeroorder.api.DTO.DlyNoteDisplayDTO">
+        <result column="item_code" property="itemCode" jdbcType="VARCHAR"/>
+        <result column="item_name" property="itemName" jdbcType="VARCHAR"/>
+        <result column="pur_order_number" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="line_num" property="orderLineNum" jdbcType="BIGINT"/>
+        <result column="shipment_num" property="shipmentNum" jdbcType="BIGINT"/>
+        <result column="object_version_number" property="objectVersionNumber" jdbcType="BIGINT"/>
+        <result column="quantity" property="orderQuantity" jdbcType="BIGINT"/>
+        <result column="quantity" property="eliverableQuantity" jdbcType="BIGINT"/>
+        <result column="quantity_uom" property="quantityUom" jdbcType="VARCHAR"/>
+        <result column="demand_date" property="demandDate" jdbcType="DATE"/>
+        <result column="promise_date" property="promiseDate" jdbcType="DATE"/>
+        <result column="company_id" property="customer" jdbcType="VARCHAR"/>
+        <result column="received_org" property="receivedOrg" jdbcType="VARCHAR"/>
+        <result column="received_warehouse" property="receivedWarehouse" jdbcType="VARCHAR"/>
+        <result column="received_location" property="receivedLocation" jdbcType="VARCHAR"/>
+        <result column="received_addr" property="receivedAddr" jdbcType="VARCHAR"/>
+        <result column="pur_agent_id" property="purAgent" jdbcType="VARCHAR"/>
+        <result column="buyer_line_remark" property="buyerLineRemark" jdbcType="VARCHAR"/>
+        <result column="supplier_id" property="supplier" jdbcType="VARCHAR"/>
+        <result column="line_status" property="lineStatus" jdbcType="VARCHAR"/>
+        <result column="supplier_address" property="supplierAddress" jdbcType="VARCHAR"/>
+        <result column="pur_line_id" property="purLineId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <select id="dlyNoteDisplay" resultMap="DlyNoteDisplayResultMap">
+        select
+                        h.pur_order_number,
+						h.pur_agent_id,
+                        h.supplier_id,
+                        h.supplier_address,
+						h.object_version_number,
+						l.item_code,
+						l.item_name,
+						l.line_num,
+						l.shipment_num,
+						l.quantity,
+						l.quantity_uom,
+						l.demand_date,
+						l.promise_date,
+						l.buyer_line_remark,
+						l.received_org,
+						l.received_warehouse,
+						l.received_location,
+						l.received_addr,
+						h.company_id,
+						l.line_status,
+						l.pur_line_id
+						from hodr_pur_header h ,hodr_pur_line l
+            where h.pur_header_id=l.pur_header_id and h.order_status="Confirmed" and l.line_status="new"
+        <if test="orderNum != null and orderNum != ''">
+            <bind name="order_num" value="'%' + orderNum + '%'"/>
+            and pur_order_number like #{order_num}
+        </if>
+        <if test="orderLineNum != null and orderLineNum != ''">
+            <bind name="order_line_num" value="'%' + orderLineNum + '%'"/>
+            and line_num like #{order_line_num}
+        </if>
+        <if test="itemName != null and itemName != ''">
+            <bind name="item_name" value="'%' + itemName + '%'"/>
+            and item_name like #{item_name}
+        </if>
+    </select>
+</mapper>

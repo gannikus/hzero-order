@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hzero.hand.hzeroorder.infra.mapper.PurHeaderMapper">
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="BaseResultMap" type="org.hzero.hand.hzeroorder.domain.entity.PurHeader">
+        <result column="pur_header_id" property="purHeaderId" jdbcType="DECIMAL"/>
+        <result column="pur_order_number" property="purOrderNumber" jdbcType="VARCHAR"/>
+        <result column="company_id" property="companyId" jdbcType="DECIMAL"/>
+        <result column="pur_org_id" property="purOrgId" jdbcType="DECIMAL"/>
+        <result column="pur_agent_id" property="purAgentId" jdbcType="DECIMAL"/>
+        <result column="order_type_id" property="orderTypeId" jdbcType="DECIMAL"/>
+        <result column="supplier_id" property="supplierId" jdbcType="DECIMAL"/>
+        <result column="supplier_address" property="supplierAddress" jdbcType="VARCHAR"/>
+        <result column="tax_excluded_total_amount" property="taxExcludedTotalAmount" jdbcType="DECIMAL"/>
+        <result column="order_abstract" property="orderAbstract" jdbcType="VARCHAR"/>
+        <result column="object_version_number" property="objectVersionNumber" jdbcType="DECIMAL"/>
+        <result column="creation_date" property="creationDate" jdbcType="DATE"/>
+        <result column="created_by" property="createdBy" jdbcType="DECIMAL"/>
+        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL"/>
+        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE"/>
+    </resultMap>
+
+    <select id="selectLike" resultType="org.hzero.hand.hzeroorder.domain.entity.PurHeader">
+    select
+    pur_header_id,
+    pur_order_number,
+    order_status,
+    company_id,
+    pur_org_id,
+    pur_agent_id,
+    order_type_id,
+    supplier_id,
+    supplier_address,
+    tax_excluded_total_amount,
+    order_abstract
+    from hodr_pur_header
+    <where>
+        <if test="purOrderNumber != null and purOrderNumber != ''">
+            <bind name="pur_order_number" value="'%' + purOrderNumber + '%'"/>
+            and pur_order_number like #{pur_order_number}
+        </if>
+        <if test="supplierId != null and supplierId != ''">
+            and supplier_id = #{supplierId}
+        </if>
+        <if test="orderTypeId != null and orderTypeId != ''">
+            and order_type_id = #{orderTypeId}
+        </if>
+        <if test="orderStatus != null and orderStatus != ''">
+            and order_status = #{orderStatus}
+        </if>
+    </where>
+    </select>
+</mapper>
+

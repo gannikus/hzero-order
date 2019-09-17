@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hzero.hand.hzeroorder.infra.mapper.DeliveryNoteHeadMapper">
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="BaseResultMap" type="org.hzero.hand.hzeroorder.domain.entity.DeliveryNoteHead">
+        <result column="head_id" property="headId" jdbcType="DECIMAL"/>
+        <result column="tenement_id" property="tenementId" jdbcType="DECIMAL"/>
+        <result column="delivery_num" property="deliveryNum" jdbcType="VARCHAR"/>
+        <result column="delivery_type" property="deliveryType" jdbcType="VARCHAR"/>
+        <result column="supplier" property="supplier" jdbcType="VARCHAR"/>
+        <result column="customer_id" property="customerId" jdbcType="DECIMAL"/>
+        <result column="receiving_organization" property="receivingOrganization" jdbcType="VARCHAR"/>
+        <result column="receiving_addr" property="receivingAddr" jdbcType="VARCHAR"/>
+        <result column="deliver_date" property="deliverDate" jdbcType="DATE"/>
+        <result column="estimeate_date" property="estimeateDate" jdbcType="DATE"/>
+        <result column="supplier_addr" property="supplierAddr" jdbcType="VARCHAR"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="order_seq" property="orderSeq" jdbcType="DECIMAL"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="object_version_number" property="objectVersionNumber" jdbcType="DECIMAL"/>
+        <result column="creation_date" property="creationDate" jdbcType="DATE"/>
+        <result column="created_by" property="createdBy" jdbcType="DECIMAL"/>
+        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL"/>
+        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE"/>
+    </resultMap>
+</mapper>
